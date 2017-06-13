@@ -7,7 +7,7 @@ self.onmessage = function (request) {
         const possibleNonce = Math.random().toString(36).substring(5);
         const hash = block.calculateHash(possibleNonce);
         if(Block.validateHash(hash, complexity)) {
-            postMessage({hash, possibleNonce});
+            postMessage({hash, nonce: possibleNonce});
             break;
         }
     }
